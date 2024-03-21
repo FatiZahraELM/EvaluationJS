@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+</head>
+<body>
+    <h1>Countries</h1>
+  
+    <br/>
+    <table style="border: 1px solid black;">
+        <thead style="border: 1px solid black;">
+            <th>Flag abreviation</th>
+            <th>Flag image</th>
+            <th>Name</th>
+        </thead>
+        <tbody style="border: 1px solid black;">
+            <% for(c of countries) { %>
+                <tr>
+                    <td><%= c.flag %></td>
+                    <td>
+                        <img src="<%= c.flags.png %>" alt="img" style="width:25px; height:20px; margin: 5px;">
+                    </td>
+
+                    <td>
+                        <a id="selectCountry" href="/country/name/<%= c.name.common %>"><%= c.name.common %></a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <script >
+              document.getElementsById("props").style.display = "none";
+
+        document.getElementById("selectCountry").addEventListener(
+    "click",
+     () => {
+      document.getElementsById("props").style.display = "block";
+    },
+    false,
+  );
+    </script>
+</body>
+</html>

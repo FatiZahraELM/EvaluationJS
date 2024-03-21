@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+</head>
+<body>
+    <h1>Country <%= country.name.common %></h1>
+  
+    
+    
+        
+                    <h4><%= country.flag %></h4>
+                    <h4>
+                        <img src="<%= country.flags.png %>" alt="img" style="width:250px; height:200px; "></h4>
+
+                    <h4>
+                            <%= country.name.common %></h4>
+                        
+                        <h4 id="props" >
+                            <%= country.population %></h4>
+                        <h4 > 
+                            <ul>
+                                <% for(timezone of country.timezones) { %>
+                                <li><%= timezone %>
+                                </li>
+                                <% } %>
+
+                            </ul>
+                        </h4>
+                        <h4 id="props" >
+                        <%= country.capital %>
+                        </h4>
+                        <h4 id="props" >
+                        <%= country.region %>
+                        </h4>
+                        <h4 id="props">
+                            <ul>
+                            <% if (country.currencies) { %>
+                                <% Object.entries(country.currencies).forEach(([code, currency]) => { %>
+                                 <li>   <%= currency.name %> (<%= currency.symbol %>)</li>
+                                <% }); %>
+                            <% } else { %>
+                                N/A
+                            <% } %>
+                    </ul></h4>
+             <h4 id="props">
+                <ul>
+                <% if (country.languages) { %>
+                    <% Object.entries(c.languages).forEach(([code, language]) => { %>
+                        <li>
+                        <%= language %> </li>
+                    <% }); %>
+                <% } else { %>
+                    N/A
+                <% } %>
+            </ul></h4>
+            
+        
+                        
+      
+       
+    <script >
+              document.getElementsById("props").style.display = "none";
+
+        document.getElementById("selectCountry").addEventListener(
+    "click",
+     () => {
+      document.getElementsById("props").style.display = "block";
+    },
+    false,
+  );
+    </script>
+</body>
+</html>
